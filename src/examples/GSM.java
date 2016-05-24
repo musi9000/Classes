@@ -49,9 +49,7 @@ public class GSM {
     private String owner;
     static String n95 = "Nokia n95";
 
-    //private void getNokiaN95Info() {
-    //    System.out.print(n95);
-    //}
+    
 
     public GSM(String gsmModel, String gsmBrand, double gsmPrice, String gsmOwner) {
         this.model = gsmModel;
@@ -66,7 +64,7 @@ public class GSM {
         this.price = 0;
         this.owner = null;
     }
-
+    
     public void getInfo() {
         System.out.printf("Model %s brand %s price %s owner %s\n", model, brand, price, owner);
     }
