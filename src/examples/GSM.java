@@ -1,5 +1,7 @@
 package examples;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mustafa
@@ -48,7 +50,8 @@ public class GSM {
     private double price;
     private String owner;
     static String n95 = "Nokia n95";
-
+    static int phoneCount=0;
+    private ArrayList<Call> callList = new ArrayList<Call>();
     
 
     public GSM(String gsmModel, String gsmBrand, double gsmPrice, String gsmOwner) {
@@ -56,6 +59,7 @@ public class GSM {
         this.brand = gsmBrand;
         this.price = gsmPrice;
         this.owner = gsmOwner;
+        phoneCount++;
     }
 
     public GSM(String gsmModel, String gsmBrand) {
@@ -63,10 +67,27 @@ public class GSM {
         this.brand = gsmBrand;
         this.price = 0;
         this.owner = null;
+        phoneCount++;
     }
     
-    public void getInfo() {
-        System.out.printf("Model %s brand %s price %s owner %s\n", model, brand, price, owner);
+    public void printInfo() {
+        System.out.printf("Model %s brand %s price %.2f owner %s\n", model, brand, price, owner);
+    }
+    
+    public void addCall(String date,String startTime,int duration){
+        String callDate = date;
+        String callStartTime = startTime;
+        int callDuration = duration;
+        callList.add(new Call(callDate,callStartTime,callDuration));
+        //System.out.print(callList);
+    }
+    
+    public void callHistory(){
+        for(int i =0;i<callList.size(); i++){
+            System.out.println(callList.get(i));
+        }
+
+
     }
 
 }
